@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Introduction](1.md)
-* [Overview of  Processing Stages](#2)
+* [Overview of  Processing Stages](2.md)
 * [Part A: Online Data Analysis Platform](#3)
 * [Part B: Local Open-source Packed Archives](#4)
 * [FAQ](#5)
