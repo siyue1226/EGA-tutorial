@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ega-tutorial by siyue1226</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Ega-tutorial</h1>
+      <h2 class="project-tagline">This is a detailed introduction for EGA users to get a quick start.</h2>
+      <a href="https://github.com/siyue1226/EGA-tutorial" class="btn">View on GitHub</a>
+      <a href="https://github.com/siyue1226/EGA-tutorial/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/siyue1226/EGA-tutorial/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p></p><h1 align="center">
+<a id="ega-tutorial" class="anchor" href="#ega-tutorial" aria-hidden="true"><span class="octicon octicon-link"></span></a>EGA tutorial</h1> 
+
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#1">Introduction</a>
+</h2>
+
+<h2>
+<a id="overview-of--processing-stages" class="anchor" href="#overview-of--processing-stages" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#2">Overview of  Processing Stages</a>
+</h2>
+
+<h4>
+<a id="multiple-genome-alignment" class="anchor" href="#multiple-genome-alignment" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#2.1">Multiple Genome Alignment</a>
+</h4>
+
+<h4>
+<a id="self-alignment" class="anchor" href="#self-alignment" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#2.2">Self-alignment</a>
+</h4>
+
+<h2>
+<a id="part-a-online-data-analysis-platform" class="anchor" href="#part-a-online-data-analysis-platform" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#3">Part A: Online Data Analysis Platform</a>
+</h2>
+
+<h4>
+<a id="example-1-yeast-genomes-alignment" class="anchor" href="#example-1-yeast-genomes-alignment" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#3.1">Example 1: Yeast Genomes Alignment</a>
+</h4>
+
+<h4>
+<a id="example-2-bacteria-genomes-alignment" class="anchor" href="#example-2-bacteria-genomes-alignment" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#3.2">Example 2: Bacteria Genomes Alignment</a>
+</h4>
+
+<h4>
+<a id="example-3-self-alignment-for-paralog-detection" class="anchor" href="#example-3-self-alignment-for-paralog-detection" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#3.3">Example 3: Self-alignment for Paralog Detection</a>
+</h4>
+
+<h2>
+<a id="part-b-local-open-source-packed-archives" class="anchor" href="#part-b-local-open-source-packed-archives" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#4">Part B: Local Open-source Packed Archives</a>
+</h2>
+
+<h4>
+<a id="availability" class="anchor" href="#availability" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#4.1">Availability</a>
+</h4>
+
+<h4>
+<a id="notice" class="anchor" href="#notice" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#4.2">Notice</a>
+</h4>
+
+<h4>
+<a id="instruction" class="anchor" href="#instruction" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#4.3">Instruction</a>
+</h4>
+
+<h2>
+<a id="faq" class="anchor" href="#faq" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#5">FAQ</a>
+</h2>
+
+<h4>
+<a id="what-types-of-data-does-ega-support" class="anchor" href="#what-types-of-data-does-ega-support" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#5.1">What types of data does EGA support</a>
+</h4>
+
+<h4>
+<a id="explanation-of-result-files-and-file-format" class="anchor" href="#explanation-of-result-files-and-file-format" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#5.2">Explanation of result files and file format</a>
+</h4>
+
+<h4>
+<a id="对align的结果统计和展示" class="anchor" href="#%E5%AF%B9align%E7%9A%84%E7%BB%93%E6%9E%9C%E7%BB%9F%E8%AE%A1%E5%92%8C%E5%B1%95%E7%A4%BA" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="#5.3">对align的结果统计和展示</a>
+</h4>
+
+<h1 align="center">
+<a id="ega-tutorial-1" class="anchor" href="#ega-tutorial-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>EGA tutorial</h1> 
+
+<h2>
+<a id="introduction-1" class="anchor" href="#introduction-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+
+<p>Multiple genome alignments play a fundamental role in many biological realms such as evolution and genomics. Easy Genome Aligner (EGA) is an integrated application designed to make complicated whole genome multiple alignments really accessible for most biologists.</p>
+
+<p>EGA is suitable for either small or huge genomes, allowing alignments of several whole genomes, especially for large proportion of neutrally evolving regions. It has been successfully used both for closely related species and also for those across large evolutionary distance such as human and mouse. Widely used in the scientific community and servings, several validation studies have shown that the core programs of EGA are powerful methods for obtaining efficient and accurate alignments.</p>
+
+<p>Two major functions of EGA are multiple genome alignment for construction of phylogenetic relationship and self-alignment for paralogous detection. The tools are available through both a web-based graphical interface and a local operating virtual machine.</p>
+
+<p>To meet different needs, the application is available through both an online data analysis platform with a friendly user interface to deal with operations of smaller-scale sequence data, and a full functional virtual machine. </p>
+
+<h2>
+<a id="overview-of--processing-stages-1" class="anchor" href="#overview-of--processing-stages-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview of  Processing Stages</h2>
+
+<h3>
+<a id="multiple-genome-alignment-1" class="anchor" href="#multiple-genome-alignment-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multiple Genome Alignment</h3>
+
+<p>The explanation of strategy and primary procedures is presented below.  </p>
+
+<p><strong>Repeat mask：</strong> All of the sequences used to construct alignments should be identified and annotated against a repeats library in order to make all repetitive elements masked. This procedure is operated to ensure that align programs will not be confused by similar sequences. The software we use here is RepeatMasker, and it may take a relative long run time for large sequences.</p>
+
+<p><strong>Partition sequences:</strong> Chromosomal sequences will be divided into several small files if their length exceeds the maximum length of 500000bp. This step is necessary since comparison between two over-length sequences will seriously reduce the processing efficiency. </p>
+
+<p><strong>Pairwise alignment:</strong> Sequences from different species are firstly pairwise aligned with Blastz or its improved version Lastz. It’s previous version was initially designed as underlying alignment program of PipMaker server and has been widely employed in numerous science websites such as EnsemblGenomes (<a href="https://www.ensembl.org/">https://www.ensembl.org/</a>) and UCSC Genome Browser (<a href="https://genome.ucsc.edu/">https://genome.ucsc.edu/</a>). A distinct advantage of Blastz/Lastz is its sensitivity in alignment for a large percentage of neutrally evolving regions. Since many genomic sequences have no apparent traces of natural selection, most existing programs are not competent to detect those segments at genome-wide scale. This step takes FASTA sequences as input and produces output in its own format lav.</p>
+
+<p><strong>Chaining and netting:</strong> After primary alignments, we apply the chaining algorithms to building chains of related fragments. Since many fragments might match with several others, the strategy is to keep the longest one. Chaining is also used to eliminate some redundant alignments and poor quality fragments. Then, extended chain alignments are further linked into larger blocks by netting. The format of the result files are axt. </p>
+
+<p><strong>Mafing:</strong> Convert previous step result to MAF format. MAF format contains genomic location information for aligning sequence blocks, which is convenient for further analysis.</p>
+
+<p><strong>Construct phylogenetic tree:</strong> Users may choose to submit a phylogenetic tree of input genomes, or to make use of the phylogenetic tree constructed by our programs for next step. The tree will provide a reference for the combination of multiple alignments.</p>
+
+<p><strong>Combine multiple pairwise results:</strong> Pairwise alignments are grouped to generate whole genome multiple alignments by Multiz. Multiz is a phylogenetic tree directed alignment tool, it uses the tree constructed previously and start with sequences closely related on evolution scale. This step is not needed if we just have two species.</p>
+
+<p><strong>Re-aligning:</strong> Since the combination of pairwise alignments may give rise to new gaps and alignment disruption, we take another process of re-align to fix this problem and make sure that sequences of all species are well-aligned. There are three sequence alignment methods for users to select depending on their needs.</p>
+
+<h3>
+<a id="self-alignment-for-paralog-detection" class="anchor" href="#self-alignment-for-paralog-detection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Self-alignment for paralog detection</h3>
+
+<p>Another major function provided in EGA is paralog sequence detection.  </p>
+
+<p><strong>Self-alignment:</strong> First, genome sequences are aligned to itself to find some similar segments. The aligment tool is as same as multiple alignment described above. </p>
+
+<p><strong>Chaining:</strong> related fragments are joined together by chaining algorithms to build longer candidates.  </p>
+
+<p><strong>Two-wheeled blast:</strong> n order to explore similar sequences at the most extent, candidates being chained above are used to perform two-wheeled blast against all of the whole genome.  </p>
+
+<p><strong>Filter and cluster:</strong> Pairs of similar sequences are then being filtered and clustered by coverage and similarity. Pairs which make up of more than 90% of each other and with a similarity value greater than 90% will be finally preserved.</p>
+
+<h2>
+<a id="part-a-online-data-analysis-platform-1" class="anchor" href="#part-a-online-data-analysis-platform-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Part A: Online Data Analysis Platform</h2>
+
+<p>Online data analysis platform is constructed for pairwise/multiple alignments with genomes smaller than 20M. We provide user-friendly interfaces and detailed instructions. Users can visit online EGA through......</p>
+
+<p>This image shows a screen snapshot of our website Home Page. The name of our application is Easy Genome Aligner. Menu bars on the top  show the main buttons, going from left to right as: Home, Upload, Align, Process, Contact. At the top right-hand corner shows two links for you to log in or register a new ID. </p>
+
+<p>You can either register a new  ID or log into the public ID with the username "guest" and password "password".</p>
+
+<p>Two major functions of our application are multiple genome alignment and paralog detection via self-alignment. You could click on the “view details” button for more information. Following are three example descriptions corresponding to different purposes of users.</p>
+
+<h4>
+<a id="example-1-yeast-genomes-alignment-1" class="anchor" href="#example-1-yeast-genomes-alignment-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example 1: Yeast Genomes Alignment</strong>
+</h4>
+
+<p>Let’s take this unicellular eukaryotic model organism for example and provide a detailed description. </p>
+
+<p>We are going to compare nine yeast strains, which are S288c, Lachancea kluyveri, Saccharomyces bayanus, Saccharomyces bayanus var. uvarum, Saccharomyces castellii, Saccharomyces kudriavzevii, Saccharomyces mikatae, Saccharomyces paradoxus, Saccharomyces pastorianus respectively. Sequences can be found in the download section of <a href="http://www.yeastgenome.org/download-data/sequence">http://www.yeastgenome.org/download-data/sequence</a>.</p>
+
+<p><img src="/Users/liuliwei/Desktop/EGA%20submission/pic/yeast_genome.png" alt="alt text" title="yeast_genome"></p>
+
+<p><strong>Data download and file format change</strong>
+ Rename the downloaded files with a brief name, which will also be used as the genome name in result files. We provide a command line for file format processing. Files processed can be used for alignment.</p>
+
+<blockquote>
+<p>perl -ne "if(/^&gt;/){s/\W+/<em>/g; s/^\</em>/&gt;/; s/_$/\n/;} print;" example.fasta &gt;out.fa</p>
+</blockquote>
+
+<p>Notice that this command can process most of the sequences that are not downloaded form NCBI. For those sequences downloaded from NCBI, our website can process them automatically. </p>
+
+<p>For users' convenience, we have provided a test account stored with the data used for example tests. You can log into the account for yeast with the username "bacteria" and password "password".</p>
+
+<p><strong>Upload</strong>
+click on "Upload" to enter the page after you log in the site. The upload page shows an upload dialog. If you need to upload a genome file, you can select a file in the open dialog box, and click on the “Upload” button. When you are doing a web-based alignment instead of in the VM, the individual file size is limited to 30M. Only three kinds of file types are accepted: .fasta, .fasta.gz, .newick. You can click on the red button to remove an uploaded file. <em><strong>Do not</strong></em> refresh the page while uploading a file!</p>
+
+<p><strong>Alignment</strong>
+You can click on the “Align” button on the menu to enter the align page. At this page you should set some parameters for the construction of alignments. Some parameters are required, such as the name of this alignment job, a target genome, at least one query genome. We have provided the recommended values for Minimum fragment length and a realigning method. Besides, you can choose to provide a guide tree or not. The absence of a guide tree will take a while for us to generate one. </p>
+
+<p>After parameter settings are completed, you can click on “Begin aligning” button to jump to the processing page automatically.</p>
+
+<p>This page displays three dialog boxes. The dialog above contains parameters set in the previous step. You can’t open a new job if the current one has not finished. However, when your job is completed or you want this job terminated, you can click on the red button at the top-right corner and open up a new task. 
+The results are provided for you to download but terminated job can’t recover.</p>
+
+<p>The middle dialog contains buttons for different processing stages. Among them, the first step is data pre-processing. You can click on the “prepare.sh” to start a job running. The information section contains general information about the running task including the start and end times and running status. </p>
+
+<p>Below is progress information for the particular run step. When the last line shows “*<strong>DONE</strong>*”, the step is supposed to be completed. Users may refresh this page and move on to the next step. </p>
+
+<p>After the pre-processing completes, refresh the page and buttons for the rest steps will appear in the middle dialog box. Users may click on buttons in sequence  to generate an alignment. For every step, when the last line shows “*<strong>DONE</strong>*”, the task is completed and you can move on to the next step.</p>
+
+<p><strong>Downloading results</strong>
+After all jobs are done, users may click on the red “finish” button and download the results generated in every step.（对于这9个酵母基因组比对的用时情况如下所示。  </p>
+
+<h4>
+<a id="example-2-bacteria-genomes-alignment-1" class="anchor" href="#example-2-bacteria-genomes-alignment-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example 2: Bacteria Genomes Alignment</strong>
+</h4>
+
+<p><strong>Data download</strong><br>
+There are two perl programs  provided to help users to download genome sequences from NCBI conveniently. The basic syntax are as shown below.  </p>
+
+<p><em>Get_seq.pl</em> is used for downloading individual genome sequence.  </p>
+
+<blockquote>
+<p>perl ~/Scripts/withncbi/util/batch_get_seq.pl \$genome_id $dir  </p>
+</blockquote>
+
+<p><em>Batch_get_seq.pl</em> is used for downloading a batch of genome sequences at a time.  </p>
+
+<blockquote>
+<p>perl ~/Scripts/withncbi/util/batch_get_seq.pl -r -p -f yeast_name_seq.csv 2&gt;&amp;1 | tee yeast_name_seq.log</p>
+</blockquote>
+
+<p>Genome sequences downloaded from NCBI need not the step to change the formats of headers. Downloaded genomes are named as the corresponding RefSeq numbers in NCBI, which will also be processed as the genome name in result files.</p>
+
+<p>We also provided a test account stored with the data used for example tests. You can log into the account for bacteria with the username "bacteria" and password "password".</p>
+
+<p>The process of alignment is similar to that of yeast. You can skip this part if you have read the instruction for yeast. If not, the instruction below will help you get a hands on start.</p>
+
+<p><strong>Upload</strong>
+click on "Upload" to enter the page after you log in the site. The upload page shows an upload dialog. If you need to upload a genome file, you can select a file in the open dialog box, and click on the “Upload” button. When you are doing a web-based alignment instead of in the VM, the individual file size is limited to 30M. Only three kinds of file types are accepted: .fasta, .fasta.gz, .newick. You can click on the red button to remove an uploaded file. <strong><em>Do not</em></strong> refresh the page while uploading a file!</p>
+
+<p><strong>Alignment</strong>
+You can click on the “Align” button on the menu to enter the align page. At this page you should set some parameters for the construction of alignments. Some parameters are required, such as the name of this alignment job, a target genome, at least one query genome. We have provided the recommended values for Minimum fragment length and a realigning method. Besides, you can choose to provide a guide tree or not. The absence of a guide tree will take a while for us to generate one. </p>
+
+<p>After parameter settings are completed, you can click on “Begin aligning” button to jump to the processing page automatically.</p>
+
+<p>This page displays three dialog boxes. The dialog above contains parameters set in the previous step. You can’t open a new job if the current one has not finished. However, when your job is completed or you want this job terminated, you can click on the red button at the top-right corner and open up a new task. 
+The results are provided for you to download but terminated job can’t recover.</p>
+
+<p>The middle dialog contains buttons for different processing stages. Among them, the first step is data pre-processing. You can click on the “prepare.sh” to start a job running. The information section contains general information about the running task including the start and end times and running status. </p>
+
+<p>Below is progress information for the particular run step. When the last line shows “*<strong>DONE</strong>*”, the step is supposed to be completed. Users may refresh this page and move on to the next step. </p>
+
+<p>After the pre-processing completes, refresh the page and buttons for the rest steps will appear in the middle dialog box. Users may click on buttons in sequence  to generate an alignment. For every step, when the last line shows “*<strong>DONE</strong>*”, the task is completed and you can move on to the next step.</p>
+
+<p><strong>Downloading results</strong>
+After all jobs are done, users may click on the red “finish” button and download the results generated in every step.</p>
+
+<h4>
+<a id="example-3-self-alignment-for-paralog-detection-1" class="anchor" href="#example-3-self-alignment-for-paralog-detection-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Example 3: Self-alignment for Paralog Detection</strong>
+</h4>
+
+<p><strong>Data download and file format change</strong>
+Here we take yeast S288c as an example. Sequences can be found in the download section of <a href="http://www.yeastgenome.org/download-data/sequence">http://www.yeastgenome.org/download-data/sequence</a>.</p>
+
+<p>Rename the downloaded file with a brief name. This name will also be used as the genome name in result files. We provide a command line for file format processing. Files processed can be used for alignment.</p>
+
+<blockquote>
+<p>perl -ne "if(/^&gt;/){s/\W+/<em>/g; s/^\</em>/&gt;/; s/_$/\n/;} print;" example.fasta</p>
+</blockquote>
+
+<p>We also provided a test account stored with the data used for example tests. You can log into the account for paralog alignment with the username "paralog" and password "password".</p>
+
+<p><strong>Upload</strong>
+click on "Upload" to enter the page after you log in the site. The upload page shows an upload dialog. If you need to upload a genome file, you can select a file in the open dialog box, and click on the “Upload” button. When you are doing a web-based alignment instead of in the VM, the individual file size is limited to 30M. Only three kinds of file types are accepted: .fasta, .fasta.gz, .newick. You can click on the red button to remove an uploaded file. <em><strong>Do not</strong></em> refresh the page while uploading a file!</p>
+
+<p><strong>Alignment</strong>
+You can click on the “Align” button on the menu to enter the align page. At this page you should set some parameters for the construction of alignments. Some parameters are required, such as the name of this alignment job and a target genome. In order to do paralog detection, you should check the “self alignment” box so that you cannot choose query genomes. We have provided the recommended values for Minimum fragment length and a realigning method. Besides, you can choose to provide a guide tree or not. The absence of a guide tree will take a while for us to generate one. </p>
+
+<p>After parameter settings are completed, you can click on “Begin aligning” button to jump to the processing page automatically.</p>
+
+<p>This page displays three dialog boxes. The dialog above contains parameters set in the previous step. You can’t open a new job if the current one has not finished. However, when your job is completed or you want this job terminated, you can click on the red button at the top-right corner and open up a new task. 
+The results are provided for you to download but terminated job can’t recover.</p>
+
+<p>The middle dialog contains buttons for different processing stages. Among them, the first step is data pre-processing. You can click on the “prepare.sh” to start a job running. The information section contains general information about the running task including the start and end times and running status. </p>
+
+<p>Below is progress information for the particular run step. When the last line shows “*<strong>DONE</strong>*”, the step is supposed to be completed. Users may refresh this page and move on to the next step. </p>
+
+<p>After the pre-processing completes, refresh the page and buttons for the rest steps will appear in the middle dialog box. Users may click on buttons in sequence  to generate an alignment. For every step, when the last line shows “*<strong>DONE</strong>*”, the task is completed and you can move on to the next step.</p>
+
+<p><strong>Downloading results</strong>
+After all jobs are done, users may click on the red “finish” button and download the results generated in every step.</p>
+
+<h2>
+<a id="part-b-local-virtual-machine" class="anchor" href="#part-b-local-virtual-machine" aria-hidden="true"><span class="octicon octicon-link"></span></a>Part B: Local virtual machine</h2>
+
+<p>If you need to construct alignments with large-scale data, we strongly recommend you to download our virtual machine with all required dependencies installed, and run the services locally. Detailed instructions and examples are as follow.</p>
+
+<h4>
+<a id="availability-1" class="anchor" href="#availability-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Availability</strong>
+</h4>
+
+<p>Local packed archive containing software and configuration file for local machine is available from <a href="http://114.212.172.30:3000/about/XXX">http://114.212.172.30:3000/about/XXX</a>.</p>
+
+<h4>
+<a id="notice-1" class="anchor" href="#notice-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Notice</strong>
+</h4>
+
+<p>Before you start to implement, there are several things to Notice here.
+1. The virtual machine could apply to windows7/windows8/windows10 systems, but it can only be deployable in a 64bit environment. If you are an apple system user, make sure your system have been upgraded to mac OS X Yosemite 10.10 or above.
+2.  The configuration of virtual machine needs at least 4 GB of memory, 1 CPU quad core or dual-core CPUs with hyper-threading enabled.
+3.  Try to use the recommended version of software.
+4.  Some System security software might conflict with virtual machine, so please exit them before using local EGA service.</p>
+
+<h4>
+<a id="instruction-1" class="anchor" href="#instruction-1" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Instruction</strong>
+</h4>
+
+<p><strong>1. Install VirtualBox:</strong>
+It is necessary to download and install VirtualBox to provide the platform to run the VM(Virtual Machine). The current version of VirtualBox is 5.0.6 for both Mac and Windows. You can obtain it for free by visiting …….</p>
+
+<p>After installing VirtualBox, users are required to install the extension pack of the same version, which can be obtained by visiting……</p>
+
+<p>Double click on the extension pack, it will be installed automatically into VirtualBox.</p>
+
+<p><strong>2. Download EGA VM and import it into VirtualBox:</strong>
+The EGA Virtual Machine (egavm.ova) can be downloaded from ……</p>
+
+<p>Once complete, start VirtualBox and click on “File”, then choose “Import virtual machine”. Choose egavm.ova in the current dialog box to start the import.</p>
+
+<p>Make sure the OS Type is “Ubuntu (64 bit)” and RAM meets the requirement. </p>
+
+<p>After successfully importing the VM, you will see the following window. The VM is now in a stopped state.</p>
+
+<p><strong>3. Start VM and open a terminal window in the VM GUI:</strong>
+Click on the “Start” button and wait for the VM to start. This may take a few seconds. Then, the desktop will appear as below.</p>
+
+<p><strong>4. Visit the EGA website:</strong>
+Click on the terminal icon on the panel on the left, and run the following command :</p>
+
+<blockquote>
+<p>cd ~/Scripts/ega &amp;&amp; node app.js</p>
+</blockquote>
+
+<p>You can visit the website in two ways:</p>
+
+<pre><code>Either outside the VM GUI, open your browser and visit http://localhost:30080
+or, inside VM GUI, open browser and visit http://localhost:3000
+</code></pre>
+
+<p><strong>5. Follow the instructions in Part A to start your alignment.</strong></p>
+
+<h2>
+<a id="faq-1" class="anchor" href="#faq-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>FAQ</h2>
+
+<h4>
+<a id="qwhat-types-of-data-does-ega-support" class="anchor" href="#qwhat-types-of-data-does-ega-support" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Q:What types of data does EGA support?</strong>
+</h4>
+
+<pre><code>A: For sequences downloaded from NCBI, users can upload directly. If your data are downloaded elsewhere, process your data with the perl command we offer in the previous instruction before you upload them.
+</code></pre>
+
+<p>If you are using a web-based EGA, the file size is limited to 30M for each uploaded file. If you are using the local VM, there is no file size limit.</p>
+
+<h4>
+<a id="qexplanation-of-result-files-and-file-format" class="anchor" href="#qexplanation-of-result-files-and-file-format" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Q:Explanation of result files and file format</strong>
+</h4>
+
+<h4>
+<a id="对align的结果统计和展示-1" class="anchor" href="#%E5%AF%B9align%E7%9A%84%E7%BB%93%E6%9E%9C%E7%BB%9F%E8%AE%A1%E5%92%8C%E5%B1%95%E7%A4%BA-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>对align的结果统计和展示</h4>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/siyue1226/EGA-tutorial">Ega-tutorial</a> is maintained by <a href="https://github.com/siyue1226">siyue1226</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
